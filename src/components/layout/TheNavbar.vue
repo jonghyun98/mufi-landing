@@ -158,41 +158,41 @@ onUnmounted(() => {
       }
     }
   }
+}
 
-  // 어두운 배경 섹션 (밝은 텍스트)
-  &.section-hero,
-  &.section-cases {
-    background: #1f1f1f;
-    .logo-text {
-      color: white;
+// 어두운 배경 섹션 (밝은 텍스트)
+.navbar.section-hero,
+.navbar.section-cases {
+  background: #1f1f1f;
+  .logo-text {
+    color: white;
+  }
+  .nav-links a {
+    color: white;
+    &::after {
+      background-color: var(--primary-color);
     }
-    .nav-links a {
-      color: white;
-      &::after {
-        background-color: var(--primary-color);
-      }
-      &:hover {
-        color: var(--primary-color);
-      }
+    &:hover {
+      color: var(--primary-color);
     }
   }
+}
 
-  // 밝은 배경 섹션 (어두운 텍스트)
-  &.section-features,
-  &.section-contact {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    .logo-text {
-      color: #1f1f1f;
+// 밝은 배경 섹션 (어두운 텍스트)
+.navbar.section-features,
+.navbar.section-contact {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  .logo-text {
+    color: #1f1f1f;
+  }
+  .nav-links a {
+    color: #1f1f1f;
+    &::after {
+      background-color: var(--primary-color);
     }
-    .nav-links a {
-      color: #1f1f1f;
-      &::after {
-        background-color: var(--primary-color);
-      }
-      &:hover {
-        color: var(--primary-color);
-      }
+    &:hover {
+      color: var(--primary-color);
     }
   }
 }
