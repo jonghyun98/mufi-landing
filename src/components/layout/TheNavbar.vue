@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['navbar', currentSection]" :data-scrolled="isScrolled">
+  <nav class="navbar" :class="currentSection" :data-scrolled="isScrolled">
     <div class="container">
       <router-link to="/" class="logo">
         <span class="logo-text">MUFI</span>
@@ -31,7 +31,7 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
   // 현재 스크롤 위치 (네비게이션 바 높이를 고려)
-  const scrollPosition = window.scrollY + window.innerHeight / 2
+  const scrollPosition = window.scrollY + 100
 
   // 현재 보이는 섹션 찾기
   let currentSectionFound = false
@@ -40,9 +40,11 @@ const handleScroll = () => {
     const element = document.getElementById(section.id)
     if (element) {
       const rect = element.getBoundingClientRect()
-      
-      // 섹션이 화면에 보이는지 확인
-      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      const offsetTop = element.offsetTop - 100 // 네비게이션 바 높이 고려
+      const offsetBottom = offsetTop + element.offsetHeight
+
+      // 현재 스크롤 위치가 섹션의 시작과 끝 사이에 있는지 확인
+      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
         currentSection.value = section.class
         currentSectionFound = true
         break
@@ -74,7 +76,7 @@ const debouncedHandleScroll = () => {
 onMounted(() => {
   window.addEventListener('scroll', debouncedHandleScroll)
   // 초기 로드 시 현재 섹션 설정
-  setTimeout(handleScroll, 100)
+  handleScroll()
 })
 
 onUnmounted(() => {
