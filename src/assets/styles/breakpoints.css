@@ -1,0 +1,177 @@
+/* Breakpoints */
+:root {
+  --breakpoint-sm: 640px;  /* 모바일 */
+  --breakpoint-md: 768px;  /* 태블릿 */
+  --breakpoint-lg: 1024px; /* 작은 데스크탑 */
+  --breakpoint-xl: 1280px; /* 큰 데스크탑 */
+  --breakpoint-2xl: 1536px; /* 초대형 디스플레이 */
+}
+
+/* Container Sizes */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+/* Responsive Container */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Responsive Utilities */
+.hidden-sm {
+  @media (max-width: 639px) {
+    display: none !important;
+  }
+}
+
+.hidden-md {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.hidden-lg {
+  @media (max-width: 1023px) {
+    display: none !important;
+  }
+}
+
+.hidden-xl {
+  @media (max-width: 1279px) {
+    display: none !important;
+  }
+}
+
+/* Show only at specific breakpoints */
+.show-sm {
+  @media (min-width: 640px) {
+    display: none !important;
+  }
+}
+
+.show-md {
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.show-lg {
+  @media (min-width: 1024px) {
+    display: none !important;
+  }
+}
+
+.show-xl {
+  @media (min-width: 1280px) {
+    display: none !important;
+  }
+}
+
+/* Responsive Grid */
+.grid {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+/* Grid Columns */
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Responsive Grid Columns */
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sm\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Responsive Spacing */
+@media (max-width: 639px) {
+  :root {
+    --spacing-4: 0.75rem;
+    --spacing-6: 1rem;
+    --spacing-8: 1.5rem;
+    --spacing-10: 2rem;
+    --spacing-12: 2.5rem;
+    --spacing-16: 3rem;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 639px) {
+  :root {
+    --font-size-base: 0.875rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.125rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-4xl: 1.875rem;
+    --font-size-5xl: 2.25rem;
+  }
+}
+
+/* Responsive Padding & Margin */
+.p-responsive {
+  padding: var(--spacing-4);
+}
+
+.m-responsive {
+  margin: var(--spacing-4);
+}
+
+@media (min-width: 768px) {
+  .p-responsive {
+    padding: var(--spacing-6);
+  }
+  
+  .m-responsive {
+    margin: var(--spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .p-responsive {
+    padding: var(--spacing-8);
+  }
+  
+  .m-responsive {
+    margin: var(--spacing-8);
+  }
+} 

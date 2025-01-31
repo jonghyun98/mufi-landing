@@ -1,169 +1,171 @@
 <template>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="title fade-in-up">
-          특별한 순간을<br />
-          더욱 특별하게
-        </h1>
-        <p class="subtitle fade-in-up delay-1">
-          스마트한 네컷사진관 플랫폼, 무피
-        </p>
-        <div class="cta-buttons fade-in-up delay-2">
-          <a href="#features" class="primary-button">서비스 알아보기</a>
-          <a href="#contact" class="secondary-button">문의하기</a>
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="animate-fadeInDown">MUFI와 함께<br>스마트한 매장 운영을 시작하세요</h1>
+      <p class="animate-fadeInUp">무인 주문 시스템의 새로운 기준, MUFI가 여러분의 비즈니스를 혁신적으로 변화시킵니다</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary animate-fadeInUp" style="animation-delay: 0.2s">시작하기</button>
+        <button class="btn btn-secondary animate-fadeInUp" style="animation-delay: 0.4s">더 알아보기</button>
+      </div>
+      <div class="hero-stats animate-fadeInUp" style="animation-delay: 0.6s">
+        <div class="stat-item">
+          <h3>1,000+</h3>
+          <p>설치 매장</p>
+        </div>
+        <div class="stat-item">
+          <h3>98%</h3>
+          <p>고객 만족도</p>
+        </div>
+        <div class="stat-item">
+          <h3>30%</h3>
+          <p>매출 증가</p>
         </div>
       </div>
-      <div class="hero-image fade-in-up delay-3">
-        <img src="@/assets/images/hero-image.png" alt="무피 키오스크 이미지" />
-      </div>
     </div>
-  </section>
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'HeroSection'
-}
+<script setup lang="ts">
+// No additional logic needed for now
 </script>
 
-<style lang="scss" scoped>
-@use '@/assets/styles/_variables' as *;
-@use '@/assets/styles/_mixins' as *;
-
-.hero {
-  min-height: 100vh;
+<style scoped lang="scss">
+.hero-section {
   width: 100%;
-  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: $bg-color;
-  padding-top: 80px;
-  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-8) var(--spacing-4);
+  background-color: var(--bg-color);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(234, 67, 67, 0.05) 0%, rgba(234, 67, 67, 0) 100%);
+    z-index: 0;
+  }
+}
 
-  .container {
-    @include container;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+.hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 
-    @include mobile {
-      flex-direction: column;
-      text-align: center;
-      padding-top: 40px;
+h1 {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-4);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-size: var(--font-size-xl);
+  color: var(--gray-600);
+  margin-bottom: var(--spacing-6);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  margin-bottom: var(--spacing-8);
+  
+  .btn {
+    min-width: 160px;
+    height: 52px;
+    font-size: var(--font-size-lg);
+    
+    &-primary {
+      background-color: var(--primary-color);
+      color: var(--bg-color);
+      
+      &:hover {
+        background-color: darken(#EA4343, 5%);
+        transform: translateY(-2px);
+      }
+    }
+    
+    &-secondary {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      
+      &:hover {
+        background-color: var(--secondary-color);
+        color: var(--bg-color);
+        transform: translateY(-2px);
+      }
     }
   }
+}
 
-  .hero-content {
-    flex: 1;
-    max-width: 600px;
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-8);
+  padding: var(--spacing-6);
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
 
-    .title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: $text-color;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
+.stat-item {
+  text-align: center;
 
-      @include mobile {
-        font-size: 2.5rem;
-      }
-    }
-
-    .subtitle {
-      font-size: 1.5rem;
-      color: rgba($text-color, 0.8);
-      margin-bottom: 2rem;
-
-      @include mobile {
-        font-size: 1.25rem;
-      }
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-
-      @include mobile {
-        justify-content: center;
-      }
-    }
+  h3 {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-2);
+    line-height: 1;
   }
 
-  .hero-image {
-    flex: 1;
-    max-width: 500px;
+  p {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+  }
+}
 
-    img {
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    margin: var(--spacing-6) var(--spacing-4);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    padding: 0 var(--spacing-4);
+    
+    .btn {
       width: 100%;
-      height: auto;
-      object-fit: contain;
     }
-
-    @include mobile {
-      max-width: 100%;
-    }
-  }
-}
-
-.primary-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: $primary-color;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
-}
-
-.secondary-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: transparent;
-  color: $primary-color;
-  text-decoration: none;
-  border: 2px solid $primary-color;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: $primary-color;
-    color: white;
-  }
-}
-
-// 애니메이션 클래스
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-
-  &.delay-1 {
-    animation-delay: 0.2s;
-  }
-  &.delay-2 {
-    animation-delay: 0.4s;
-  }
-  &.delay-3 {
-    animation-delay: 0.6s;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 </style>
