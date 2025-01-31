@@ -7,14 +7,14 @@
       <div class="reviews-grid">
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.2s">
           <div class="review-profile">
-            <img src="@/assets/icons/profile-1.svg" alt="서울대학교 총학생회 프로필" />
+            <img src="@/assets/icons/profile-1.svg" alt="서울과학기술대학교 프로필" />
             <div class="profile-info">
-              <h3>서울대학교 총학생회</h3>
-              <p>2023 가을축제</p>
+              <h3>서울과학기술대학교</h3>
+              <p>2024 봄 축제</p>
             </div>
           </div>
           <div class="review-text">
-            <p>"축제 기간 내내 학생들의 호응이 정말 좋았습니다. 특히 총장님과 함께하는 네컷 이벤트는 대박이었어요! 다음 행사에도 꼭 함께하고 싶습니다."</p>
+            <p>"학생들의 반응이 정말 좋았습니다! QR코드로 바로 저장할 수 있어 편리했고, 프레임 커스터마이징도 만족스러웠어요. 다음 행사에서도 함께하고 싶습니다."</p>
           </div>
           <div class="review-rating">
             <i class="fas fa-star"></i>
@@ -27,14 +27,14 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.3s">
           <div class="review-profile">
-            <img src="@/assets/icons/profile-2.svg" alt="삼성전자 인사팀 프로필" />
+            <img src="@/assets/icons/profile-2.svg" alt="충북대학교 프로필" />
             <div class="profile-info">
-              <h3>삼성전자 인사팀</h3>
-              <p>2024 신년회</p>
+              <h3>충북대학교</h3>
+              <p>2023 가을 축제</p>
             </div>
           </div>
           <div class="review-text">
-            <p>"직원들이 정말 즐거워했습니다. QR코드로 바로 저장할 수 있어서 편리했고, 프레임도 우리 회사 특성에 맞게 제작해주셔서 만족도가 높았어요."</p>
+            <p>"축제 기간 동안 학생들에게 큰 호응을 받았습니다. 운영도 원활했고, 다양한 필터와 효과 덕분에 더욱 특별한 경험이 되었어요."</p>
           </div>
           <div class="review-rating">
             <i class="fas fa-star"></i>
@@ -47,14 +47,14 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.4s">
           <div class="review-profile">
-            <img src="@/assets/icons/profile-3.svg" alt="시그니엘 웨딩홀 프로필" />
+            <img src="@/assets/icons/profile-3.svg" alt="서원대학교 프로필" />
             <div class="profile-info">
-              <h3>시그니엘 웨딩홀</h3>
-              <p>웨딩 플래너</p>
+              <h3>서원대학교</h3>
+              <p>신입생 환영회</p>
             </div>
           </div>
           <div class="review-text">
-            <p>"하객분들의 반응이 정말 좋았습니다. 고급스러운 디자인과 프리미엄 부스가 저희 웨딩홀의 이미지와 잘 어울렸어요. 지속적으로 협력하고 싶습니다."</p>
+            <p>"학교 행사의 분위기를 더욱 빛내주었습니다. 단체 촬영 옵션이 특히 인기가 많았어요!"</p>
           </div>
           <div class="review-rating">
             <i class="fas fa-star"></i>
@@ -67,14 +67,94 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.5s">
           <div class="review-profile">
-            <img src="@/assets/icons/profile-1.svg" alt="서울재즈페스티벌 프로필" />
+            <img src="@/assets/icons/profile-1.svg" alt="연세대학교 미래캠퍼스 프로필" />
             <div class="profile-info">
-              <h3>서울재즈페스티벌</h3>
-              <p>행사 기획자</p>
+              <h3>연세대학교 미래캠퍼스</h3>
+              <p>교내 행사</p>
             </div>
           </div>
           <div class="review-text">
-            <p>"야외 행사임에도 불구하고 완벽하게 운영해주셨어요. 갑자기 비가 왔을 때도 신속하게 대처해주셔서 정말 감사했습니다. 최고의 파트너십이었어요!"</p>
+            <p>"교내 학생회 행사에서 부스 운영이 원활했고, 방문자들의 만족도가 높았습니다. 기업 로고 커스터마이징 옵션도 좋았어요."</p>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="review-card animate-fadeInUp" style="animation-delay: 0.6s">
+          <div class="review-profile">
+            <img src="@/assets/icons/profile-2.svg" alt="동국대학교 프로필" />
+            <div class="profile-info">
+              <h3>동국대학교</h3>
+              <p>동아리 박람회</p>
+            </div>
+          </div>
+          <div class="review-text">
+            <p>"동아리 홍보용으로 사용했는데 학생들에게 좋은 반응을 얻었습니다. 다음에도 함께하고 싶습니다."</p>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="review-card animate-fadeInUp" style="animation-delay: 0.7s">
+          <div class="review-profile">
+            <img src="@/assets/icons/profile-3.svg" alt="건국대학교 프로필" />
+            <div class="profile-info">
+              <h3>건국대학교</h3>
+              <p>교내 행사</p>
+            </div>
+          </div>
+          <div class="review-text">
+            <p>"설치부터 운영까지 원활하게 진행되어 매우 만족합니다. 학생들에게도 좋은 경험이었어요."</p>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="review-card animate-fadeInUp" style="animation-delay: 0.8s">
+          <div class="review-profile">
+            <img src="@/assets/icons/profile-1.svg" alt="건국대학교 글로컬캠퍼스 프로필" />
+            <div class="profile-info">
+              <h3>건국대학교 글로컬캠퍼스</h3>
+              <p>축제 이벤트</p>
+            </div>
+          </div>
+          <div class="review-text">
+            <p>"축제에서 정말 큰 인기를 끌었습니다. 즉석에서 출력되는 사진 덕분에 많은 사람이 방문했어요."</p>
+          </div>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="review-card animate-fadeInUp" style="animation-delay: 0.9s">
+          <div class="review-profile">
+            <img src="@/assets/icons/profile-2.svg" alt="세종대학교 프로필" />
+            <div class="profile-info">
+              <h3>세종대학교</h3>
+              <p>신입생 오리엔테이션</p>
+            </div>
+          </div>
+          <div class="review-text">
+            <p>"신입생들이 즐길 수 있는 특별한 이벤트였습니다. 향후 행사에서도 활용하고 싶습니다."</p>
           </div>
           <div class="review-rating">
             <i class="fas fa-star"></i>
@@ -220,7 +300,7 @@ h2 {
   }
 
   .review-rating {
-    color: var(--primary-color);
+    color: #FFD700;
     font-size: 20px;
     display: flex;
     gap: 4px;
