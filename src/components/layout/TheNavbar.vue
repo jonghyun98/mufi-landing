@@ -31,7 +31,7 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
   // 현재 스크롤 위치 (네비게이션 바 높이를 고려)
-  const scrollPosition = window.scrollY + 100
+  const scrollPosition = window.scrollY + window.innerHeight / 2
 
   // 현재 보이는 섹션 찾기
   let currentSectionFound = false
@@ -40,11 +40,9 @@ const handleScroll = () => {
     const element = document.getElementById(section.id)
     if (element) {
       const rect = element.getBoundingClientRect()
-      const offsetTop = element.offsetTop
-      const offsetBottom = offsetTop + element.offsetHeight
-
-      // 현재 스크롤 위치가 섹션의 시작과 끝 사이에 있는지 확인
-      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+      
+      // 섹션이 화면에 보이는지 확인
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
         currentSection.value = section.class
         currentSectionFound = true
         break
@@ -52,7 +50,13 @@ const handleScroll = () => {
     }
   }
 
-  // 마지막 섹션 처리
+  // 페이지 맨 위일 때 첫 번째 섹션으로 설정
+  if (window.scrollY < 100) {
+    currentSection.value = sections[0].class
+    return
+  }
+
+  // 페이지 맨 아래일 때 마지막 섹션으로 설정
   if (!currentSectionFound && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
     currentSection.value = sections[sections.length - 1].class
   }
@@ -64,12 +68,13 @@ const debouncedHandleScroll = () => {
   if (scrollTimeout) {
     window.clearTimeout(scrollTimeout)
   }
-  scrollTimeout = window.setTimeout(handleScroll, 100)
+  scrollTimeout = window.setTimeout(handleScroll, 50)
 }
 
 onMounted(() => {
   window.addEventListener('scroll', debouncedHandleScroll)
-  handleScroll()
+  // 초기 로드 시 현재 섹션 설정
+  setTimeout(handleScroll, 100)
 })
 
 onUnmounted(() => {
