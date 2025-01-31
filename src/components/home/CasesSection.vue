@@ -1,11 +1,14 @@
 <template>
-  <section class="cases-section">
+  <section id="cases" class="cases-section section-animation">
     <div class="container">
-      <h2 class="section-title">설치 사례</h2>
-      <p class="section-description">다양한 행사에서 MUFI와 함께한 순간들</p>
+      <h2 class="section-title fade-in-up">설치 사례</h2>
+      <p class="section-description fade-in-up delay-1">다양한 행사에서 MUFI와 함께한 순간들</p>
       
       <div class="cases-grid">
-        <div class="case-card" v-for="(item, index) in cases" :key="index">
+        <div v-for="(item, index) in cases" 
+             :key="index" 
+             class="case-card fade-in-up"
+             :class="`delay-${index + 2}`">
           <div class="case-header">
             <h3>{{ item.university }}</h3>
             <p class="event-name">{{ item.event }}</p>

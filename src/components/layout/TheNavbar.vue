@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }">
+  <nav :class="['navbar', { 'navbar-scrolled': isScrolled, [`section-${currentSection}`]: true }]">
     <div class="container">
       <div class="navbar-content">
         <router-link to="/" class="navbar-brand">
@@ -7,10 +7,12 @@
         </router-link>
         
         <div class="navbar-menu" :class="{ 'active': isMenuOpen }">
-          <a href="#features" class="navbar-link" @click="closeMenu">특징</a>
-          <a href="#service" class="navbar-link" @click="closeMenu">서비스</a>
-          <a href="#cases" class="navbar-link" @click="closeMenu">설치사례</a>
-          <a href="#reviews" class="navbar-link" @click="closeMenu">후기</a>
+          <a v-for="section in sections" 
+             :key="section.id" 
+             :href="`#${section.id}`"
+             :class="{ active: currentSection === section.id }">
+            {{ section.name }}
+          </a>
           <a href="#contact" class="btn btn-primary" @click="closeMenu">문의하기</a>
         </div>
         
@@ -29,9 +31,36 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
+const currentSection = ref('hero')
+
+const sections = [
+  { id: 'hero', name: '홈' },
+  { id: 'features', name: '특징' },
+  { id: 'process', name: '이용방법' },
+  { id: 'kiosk', name: '키오스크' },
+  { id: 'service', name: '서비스' },
+  { id: 'cases', name: '설치사례' },
+  { id: 'comparison', name: '비교' },
+  { id: 'reviews', name: '후기' },
+  { id: 'contact', name: '문의하기' }
+]
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
+
+  // 현재 보이는 섹션 찾기
+  const sectionElements = sections.map(section => ({
+    id: section.id,
+    element: document.getElementById(section.id)
+  })).filter(section => section.element)
+
+  for (const section of sectionElements) {
+    const rect = section.element!.getBoundingClientRect()
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      currentSection.value = section.id
+      break
+    }
+  }
 }
 
 const toggleMenu = () => {
@@ -48,8 +77,30 @@ const closeMenu = () => {
   document.body.style.overflow = ''
 }
 
+// Intersection Observer 설정
 onMounted(() => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in')
+      }
+    })
+  }, observerOptions)
+
+  // 모든 섹션에 observer 적용
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('section-animation')
+    observer.observe(section)
+  })
+
   window.addEventListener('scroll', handleScroll)
+  handleScroll()
 })
 
 onUnmounted(() => {
@@ -73,6 +124,42 @@ onUnmounted(() => {
     background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  // 섹션별 스타일
+  &.section-hero {
+    color: white;
+    .navbar-menu a { color: white; }
+  }
+
+  &.section-features {
+    color: var(--secondary-color);
+    .navbar-menu a { color: var(--secondary-color); }
+  }
+
+  &.section-process {
+    color: var(--secondary-color);
+    .navbar-menu a { color: var(--secondary-color); }
+  }
+
+  &.section-kiosk {
+    color: white;
+    .navbar-menu a { color: white; }
+  }
+
+  &.section-cases {
+    color: var(--secondary-color);
+    .navbar-menu a { color: var(--secondary-color); }
+  }
+
+  &.section-reviews {
+    color: var(--secondary-color);
+    .navbar-menu a { color: var(--secondary-color); }
+  }
+
+  &.section-contact {
+    color: white;
+    .navbar-menu a { color: white; }
   }
 }
 
