@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <TheNavbar />
     <HeroSection id="hero" class="section-hero" />
     <FeaturesSection id="features" class="section-features" />
     <CasesSection id="cases" class="section-cases" />
@@ -9,6 +10,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import TheNavbar from '@/components/layout/TheNavbar.vue'
 import HeroSection from '@/components/home/HeroSection.vue'
 import FeaturesSection from '@/components/home/FeaturesSection.vue'
 import CasesSection from '@/components/home/CasesSection.vue'
@@ -22,11 +24,10 @@ onMounted(() => {
       }
     })
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -10% 0px'
+    threshold: 0.1
   })
 
-  document.querySelectorAll('[data-section]').forEach(section => {
+  document.querySelectorAll('.section-transition').forEach(section => {
     observer.observe(section)
   })
 
@@ -53,16 +54,14 @@ onMounted(() => {
   background-color: var(--bg-color);
 }
 
-.sections-container {
-  padding-top: 80px; // 네비게이션 바 높이만큼 여백
-}
-
-.section-transition {
+.section-hero,
+.section-features,
+.section-cases,
+.section-contact {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.8s ease-out;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity, transform;
-  scroll-margin-top: 80px; // 네비게이션 바 높이만큼 여백 추가
   
   &.visible {
     opacity: 1;
@@ -71,12 +70,8 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .sections-container {
+  .home {
     padding-top: 60px;
-  }
-
-  .section-transition {
-    scroll-margin-top: 60px;
   }
 }
 </style> 
