@@ -6,11 +6,11 @@
   ]">
     <div class="container">
       <router-link to="/" class="logo">
-        <svg width="120" height="40" viewBox="0 0 687 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0h687v120H0z" fill="none"/>
-          <path d="M0 20.4h45.8l45.8 79.2h2.1l45.8-79.2h45.8v99.2h-36.7V52.9h-1.5l-40.8 66.7h-27.1L37.4 52.9h-1.5v66.7H0V20.4zM229.2 20.4h36.7v99.2h-36.7V20.4zM332.9 121.3c-14.6 0-27.1-3.1-37.7-9.4-10.4-6.2-18.5-15-24.2-26.2-5.6-11.2-8.5-24.4-8.5-39.6 0-15.2 2.9-28.3 8.5-39.6 5.8-11.2 13.8-20 24.2-26.2 10.6-6.2 23.1-9.4 37.7-9.4 14.6 0 27.1 3.1 37.5 9.4 10.6 6.2 18.5 15 24.2 26.2 5.8 11.2 8.7 24.4 8.7 39.6 0 15.2-2.9 28.3-8.7 39.6-5.6 11.2-13.5 20-24.2 26.2-10.4 6.2-22.9 9.4-37.5 9.4zm0-31.2c7.1 0 13.1-1.7 18.1-5 5-3.3 8.7-8.3 11.2-15 2.7-6.7 4-15 4-25s-1.3-18.3-4-25c-2.5-6.7-6.2-11.7-11.2-15-5-3.3-11-5-18.1-5s-13.3 1.7-18.3 5c-4.8 3.3-8.5 8.3-11 15-2.5 6.7-3.7 15-3.7 25s1.2 18.3 3.7 25c2.5 6.7 6.2 11.7 11 15 5 3.3 11.2 5 18.3 5zM687 20.4v99.2h-36.7V52.9h-1.5l-40.8 66.7h-27.1l-40.8-66.7h-1.5v66.7h-36.7V20.4h45.8l45.8 79.2h2.1l45.8-79.2H687z" fill="currentColor"/>
-          <circle cx="550" cy="15" r="15" fill="#EA4343"/>
-          <circle cx="650" cy="15" r="15" fill="#EA4343"/>
+        <svg width="140" height="40" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 40h140l140 120h6l140-120h140v160h-112V92h-4L330 200h-82L128 92h-4v108H0V40z" fill="currentColor"/>
+          <path d="M700 40h112v160H700V40zm315 160c-44 0-82-9-115-28-31-19-56-46-73-80-17-34-26-74-26-120 0-46 9-86 26-120 17-34 42-61 73-80 33-19 71-28 115-28s82 9 114 28c32 19 57 46 74 80 17 34 26 74 26 120 0 46-9 86-26 120-17 34-42 61-74 80-32 19-70 28-114 28zm0-95c21 0 40-5 55-15 15-10 26-25 34-45 8-20 12-46 12-76s-4-56-12-76c-8-20-19-35-34-45-15-10-34-15-55-15s-40 5-56 15c-14 10-25 25-33 45-8 20-11 46-11 76s3 56 11 76c8 20 19 35 33 45 16 10 35 15 56 15zM2100 40v160h-112V92h-4l-124 108h-82L1654 92h-4v108h-112V40h140l140 120h6l140-120h136z" fill="currentColor"/>
+          <circle cx="1680" cy="25" r="25" fill="#EA4343"/>
+          <circle cx="1980" cy="25" r="25" fill="#EA4343"/>
         </svg>
       </router-link>
       <div class="nav-links">
@@ -93,7 +93,7 @@ onUnmounted(() => {
     align-items: center;
     
     svg {
-      height: 40px;
+      height: 28px;
       width: auto;
       transition: all 0.3s ease;
     }
@@ -150,12 +150,12 @@ onUnmounted(() => {
     padding: 0.8rem 0;
 
     .logo svg {
-      height: 35px;
-      color: var(--secondary-color);
+      height: 24px;
+      color: #1f1f1f;
     }
 
     .nav-links a {
-      color: var(--secondary-color);
+      color: #1f1f1f;
       text-shadow: none;
       &::after {
         background-color: var(--primary-color);
@@ -166,10 +166,10 @@ onUnmounted(() => {
   // features 섹션
   &.section-features {
     .logo svg {
-      color: var(--secondary-color);
+      color: #1f1f1f;
     }
     .nav-links a {
-      color: var(--secondary-color);
+      color: #1f1f1f;
       text-shadow: none;
       &::after {
         background-color: var(--primary-color);
@@ -180,10 +180,10 @@ onUnmounted(() => {
   // cases 섹션
   &.section-cases {
     .logo svg {
-      color: var(--secondary-color);
+      color: #1f1f1f;
     }
     .nav-links a {
-      color: var(--secondary-color);
+      color: #1f1f1f;
       text-shadow: none;
       &::after {
         background-color: var(--primary-color);
@@ -217,7 +217,7 @@ onUnmounted(() => {
     }
 
     .logo svg {
-      height: 30px;
+      height: 20px;
     }
   }
 }
