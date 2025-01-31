@@ -96,11 +96,13 @@ onUnmounted(() => {
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background: #1f1f1f;
+  background: rgba(31, 31, 31, 0.95);
+  backdrop-filter: blur(10px);
 
   &[data-scrolled="true"] {
     padding: 0.8rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(31, 31, 31, 0.98);
 
     .logo-text {
       font-size: 22px;
@@ -118,6 +120,9 @@ onUnmounted(() => {
 
   .logo {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     
     .logo-text {
       font-size: 24px;
@@ -165,16 +170,24 @@ onUnmounted(() => {
 // 어두운 배경 섹션 (밝은 텍스트)
 .navbar.section-hero,
 .navbar.section-cases {
-  background: #1f1f1f;
+  background: rgba(31, 31, 31, 0.95);
+  backdrop-filter: blur(10px);
+  
   .logo-text {
     color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+  
   .nav-links a {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     &::after {
       background-color: var(--primary-color);
+      box-shadow: 0 0 8px rgba(234, 67, 67, 0.5);
     }
     &:hover {
+      color: var(--primary-color);
+    }
+    &.active {
       color: var(--primary-color);
     }
   }
@@ -183,17 +196,25 @@ onUnmounted(() => {
 // 밝은 배경 섹션 (어두운 텍스트)
 .navbar.section-features,
 .navbar.section-contact {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  
   .logo-text {
     color: #1f1f1f;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
+  
   .nav-links a {
-    color: #1f1f1f;
+    color: rgba(31, 31, 31, 0.9);
     &::after {
       background-color: var(--primary-color);
+      box-shadow: 0 0 8px rgba(234, 67, 67, 0.3);
     }
     &:hover {
+      color: var(--primary-color);
+    }
+    &.active {
       color: var(--primary-color);
     }
   }
