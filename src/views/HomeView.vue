@@ -1,33 +1,17 @@
 <template>
   <div class="home">
-    <TheNavbar />
-    <div class="sections-container">
-      <HeroSection class="section-transition" data-section />
-      <FeaturesSection id="features" class="section-transition" data-section />
-      <ServiceSection id="service" class="section-transition" data-section />
-      <KioskSection id="kiosk" class="section-transition" data-section />
-      <CasesSection id="cases" class="section-transition" data-section />
-      <ReviewsSection id="reviews" class="section-transition" data-section />
-      <ComparisonSection id="comparison" class="section-transition" data-section />
-      <FaqSection id="faq" class="section-transition" data-section />
-      <ContactSection id="contact" class="section-transition" data-section />
-    </div>
-    <TheFooter />
+    <HeroSection id="hero" class="section-hero" />
+    <FeaturesSection id="features" class="section-features" />
+    <CasesSection id="cases" class="section-cases" />
+    <ContactSection id="contact" class="section-contact" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import TheNavbar from '@/components/layout/TheNavbar.vue'
-import TheFooter from '@/components/layout/TheFooter.vue'
 import HeroSection from '@/components/home/HeroSection.vue'
 import FeaturesSection from '@/components/home/FeaturesSection.vue'
-import ServiceSection from '@/components/home/ServiceSection.vue'
-import KioskSection from '@/components/home/KioskSection.vue'
 import CasesSection from '@/components/home/CasesSection.vue'
-import ReviewsSection from '@/components/home/ReviewsSection.vue'
-import ComparisonSection from '@/components/home/ComparisonSection.vue'
-import FaqSection from '@/components/home/FaqSection.vue'
 import ContactSection from '@/components/home/ContactSection.vue'
 
 onMounted(() => {
