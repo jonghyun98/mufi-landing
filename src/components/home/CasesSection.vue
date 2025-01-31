@@ -1,5 +1,5 @@
 <template>
-  <div id="cases" class="cases-section section-animation">
+  <div id="cases" class="cases-section section-animation section-cases">
     <div class="container">
       <h2 class="section-title fade-in-up">설치 사례</h2>
       <p class="section-description fade-in-up delay-1">다양한 행사에서 MUFI와 함께한 순간들</p>

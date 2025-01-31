@@ -1,5 +1,5 @@
 <template>
-  <div id="hero" class="hero-section">
+  <div id="hero" class="hero-section section-hero">
     <div class="hero-content">
       <h1 class="animate-fadeInDown">MUFI와 함께<br>스마트한 매장 운영을 시작하세요</h1>
       <p class="animate-fadeInUp">무인 주문 시스템의 새로운 기준, MUFI가 여러분의 비즈니스를 혁신적으로 변화시킵니다</p>
