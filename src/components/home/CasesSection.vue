@@ -44,6 +44,14 @@ import CountUp from 'vue-countup-v3'
 
 const cases = ref([
   {
+    university: '서울과학기술대학교',
+    description: '2023 대동제에서 총장님과 함께한 특별한 순간',
+    users: 1800,
+    days: 3,
+    satisfaction: 95,
+    imageFolder: 'seoultech'
+  },
+  {
     university: '충북대학교',
     description: '2023 대동제 축제 기간 동안 3일간 1,500명 이상 이용',
     users: 1500,
@@ -52,20 +60,52 @@ const cases = ref([
     imageFolder: 'chungbuk'
   },
   {
-    university: '한국외국어대학교',
-    description: '2023 축제 현장에서 2,000명 이상의 학생들과 함께',
+    university: '서원대학교',
+    description: '2023 신입생 오리엔테이션에서 1,200명 이상의 신입생과 함께',
+    users: 1200,
+    days: 2,
+    satisfaction: 97,
+    imageFolder: 'seowon'
+  },
+  {
+    university: '연세대학교 미래캠퍼스',
+    description: '2023 채용 박람회에서 2,000명 이상의 학생들과 소통',
     users: 2000,
     days: 4,
     satisfaction: 96,
-    imageFolder: 'hufs'
+    imageFolder: 'yonsei'
   },
   {
-    university: '서울과학기술대학교',
-    description: '2023 대동제에서 총장님과 함께한 특별한 순간',
-    users: 1800,
+    university: '동국대학교',
+    description: '2023~2025 동아리 박람회에서 10,000명 이상의 학생들과 함께',
+    users: 10000,
     days: 3,
+    satisfaction: 94,
+    imageFolder: 'dongguk'
+  },
+  {
+    university: '건국대학교',
+    description: '2023 축제 이벤트에서 2,200명 이상의 참여자와 함께한 순간',
+    users: 2200,
+    days: 5,
+    satisfaction: 99,
+    imageFolder: 'konkuk'
+  },
+  {
+    university: '건국대학교 글로컬캠퍼스',
+    description: '2023 가을 축제에서 1,700명 이상의 학생들과 즐거운 시간',
+    users: 1700,
+    days: 3,
+    satisfaction: 96,
+    imageFolder: 'konkuk-glocal'
+  },
+  {
+    university: '세종대학교',
+    description: '2023 신입생 환영회에서 5,000명 이상의 신입생들과 함께',
+    users: 5000,
+    days: 2,
     satisfaction: 95,
-    imageFolder: 'seoultech'
+    imageFolder: 'sejong'
   }
 ])
 
