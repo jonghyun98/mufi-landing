@@ -71,12 +71,11 @@ onUnmounted(() => {
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background: rgba(31, 31, 31, 0.85);
-  backdrop-filter: blur(10px);
+  background: #1f1f1f;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
   &[data-scrolled="true"] {
-    background: rgba(31, 31, 31, 0.95);
-    backdrop-filter: blur(10px);
+    background: #1f1f1f;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 0.8rem 0;
 
@@ -148,43 +147,17 @@ onUnmounted(() => {
     }
   }
 
-  &.section-hero {
-    background: rgba(31, 31, 31, 0.85);
-    .logo-text {
-      color: white;
-    }
-    .nav-links a {
-      color: white;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-      &::after {
-        background-color: var(--primary-color);
-      }
-    }
-  }
-
+  &.section-hero,
   &.section-features,
-  &.section-cases {
-    background: rgba(31, 31, 31, 0.85);
+  &.section-cases,
+  &.section-contact {
+    background: #1f1f1f;
     .logo-text {
       color: white;
     }
     .nav-links a {
       color: white;
       text-shadow: none;
-      &::after {
-        background-color: var(--primary-color);
-      }
-    }
-  }
-
-  &.section-contact {
-    background: rgba(31, 31, 31, 0.85);
-    .logo-text {
-      color: white;
-    }
-    .nav-links a {
-      color: white;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
       &::after {
         background-color: var(--primary-color);
       }
