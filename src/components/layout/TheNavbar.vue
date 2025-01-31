@@ -1,9 +1,5 @@
 <template>
-  <nav :class="[
-    'navbar',
-    { 'navbar-scrolled': isScrolled },
-    currentSection
-  ]">
+  <nav :class="['navbar', currentSection]" :data-scrolled="isScrolled">
     <div class="container">
       <router-link to="/" class="logo">
         <span class="logo-text">MUFI</span>
@@ -32,30 +28,33 @@ const sections = [
 ]
 
 const handleScroll = () => {
-  // 스크롤 여부 확인
   isScrolled.value = window.scrollY > 50
 
   // 현재 섹션 확인
-  const scrollPosition = window.scrollY + 100 // 네비게이션 바 높이를 고려한 오프셋
+  const scrollPosition = window.scrollY
 
-  for (const section of sections) {
+  // 모든 섹션을 순회하며 가장 가까운 섹션 찾기
+  let closestSection = sections[0]
+  let minDistance = Infinity
+
+  sections.forEach(section => {
     const element = document.getElementById(section.id)
     if (element) {
-      const { top, bottom } = element.getBoundingClientRect()
-      const elementTop = top + window.scrollY
-      const elementBottom = bottom + window.scrollY
-
-      if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-        currentSection.value = section.class
-        break
+      const rect = element.getBoundingClientRect()
+      const distance = Math.abs(rect.top)
+      if (distance < minDistance) {
+        minDistance = distance
+        closestSection = section
       }
     }
-  }
+  })
+
+  currentSection.value = closestSection.class
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  handleScroll() // 초기 상태 설정
+  handleScroll()
 })
 
 onUnmounted(() => {
@@ -73,6 +72,26 @@ onUnmounted(() => {
   padding: 1rem 0;
   transition: all 0.3s ease;
 
+  &[data-scrolled="true"] {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0;
+
+    .logo-text {
+      color: #1f1f1f !important;
+      font-size: 22px;
+    }
+
+    .nav-links a {
+      color: #1f1f1f !important;
+      text-shadow: none !important;
+      &::after {
+        background-color: var(--primary-color) !important;
+      }
+    }
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -89,7 +108,6 @@ onUnmounted(() => {
       font-size: 24px;
       font-weight: 800;
       transition: all 0.3s ease;
-      color: var(--primary-color);
     }
   }
 
@@ -103,7 +121,6 @@ onUnmounted(() => {
       font-size: 1.1rem;
       transition: all 0.3s ease;
       position: relative;
-      color: #1f1f1f;
 
       &::after {
         content: '';
@@ -112,7 +129,6 @@ onUnmounted(() => {
         left: 0;
         width: 0;
         height: 2px;
-        background-color: var(--primary-color);
         transition: width 0.3s ease;
       }
 
@@ -123,7 +139,6 @@ onUnmounted(() => {
     }
   }
 
-  // 기본 상태 (hero 섹션)
   &.section-hero {
     background: transparent;
     .logo-text {
@@ -138,43 +153,9 @@ onUnmounted(() => {
     }
   }
 
-  // 스크롤된 상태의 기본 스타일
-  &.navbar-scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.8rem 0;
-
-    .logo-text {
-      color: #1f1f1f;
-      font-size: 22px;
-    }
-
-    .nav-links a {
-      color: #1f1f1f;
-      text-shadow: none;
-      &::after {
-        background-color: var(--primary-color);
-      }
-    }
-  }
-
-  // features 섹션
-  &.section-features {
-    .logo-text {
-      color: #1f1f1f;
-    }
-    .nav-links a {
-      color: #1f1f1f;
-      text-shadow: none;
-      &::after {
-        background-color: var(--primary-color);
-      }
-    }
-  }
-
-  // cases 섹션
+  &.section-features,
   &.section-cases {
+    background: transparent;
     .logo-text {
       color: #1f1f1f;
     }
@@ -187,8 +168,8 @@ onUnmounted(() => {
     }
   }
 
-  // contact 섹션
   &.section-contact {
+    background: transparent;
     .logo-text {
       color: white;
     }
