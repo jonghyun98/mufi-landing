@@ -71,20 +71,22 @@ onUnmounted(() => {
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
+  background: rgba(31, 31, 31, 0.85);
+  backdrop-filter: blur(10px);
 
   &[data-scrolled="true"] {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(31, 31, 31, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 0.8rem 0;
 
     .logo-text {
-      color: #1f1f1f !important;
+      color: white !important;
       font-size: 22px;
     }
 
     .nav-links a {
-      color: #1f1f1f !important;
+      color: white !important;
       text-shadow: none !important;
       &::after {
         background-color: var(--primary-color) !important;
@@ -108,6 +110,7 @@ onUnmounted(() => {
       font-size: 24px;
       font-weight: 800;
       transition: all 0.3s ease;
+      color: white;
     }
   }
 
@@ -119,6 +122,7 @@ onUnmounted(() => {
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
+      color: white;
       transition: all 0.3s ease;
       position: relative;
 
@@ -129,6 +133,7 @@ onUnmounted(() => {
         left: 0;
         width: 0;
         height: 2px;
+        background-color: var(--primary-color);
         transition: width 0.3s ease;
       }
 
@@ -136,11 +141,15 @@ onUnmounted(() => {
       &.active::after {
         width: 100%;
       }
+
+      &:hover {
+        color: var(--primary-color);
+      }
     }
   }
 
   &.section-hero {
-    background: transparent;
+    background: rgba(31, 31, 31, 0.85);
     .logo-text {
       color: white;
     }
@@ -148,19 +157,19 @@ onUnmounted(() => {
       color: white;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
       &::after {
-        background-color: white;
+        background-color: var(--primary-color);
       }
     }
   }
 
   &.section-features,
   &.section-cases {
-    background: transparent;
+    background: rgba(31, 31, 31, 0.85);
     .logo-text {
-      color: #1f1f1f;
+      color: white;
     }
     .nav-links a {
-      color: #1f1f1f;
+      color: white;
       text-shadow: none;
       &::after {
         background-color: var(--primary-color);
@@ -169,7 +178,7 @@ onUnmounted(() => {
   }
 
   &.section-contact {
-    background: transparent;
+    background: rgba(31, 31, 31, 0.85);
     .logo-text {
       color: white;
     }
@@ -177,7 +186,7 @@ onUnmounted(() => {
       color: white;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
       &::after {
-        background-color: white;
+        background-color: var(--primary-color);
       }
     }
   }
