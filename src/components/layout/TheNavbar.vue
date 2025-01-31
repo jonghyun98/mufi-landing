@@ -6,12 +6,7 @@
   ]">
     <div class="container">
       <router-link to="/" class="logo">
-        <svg width="140" height="40" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 40h140l140 120h6l140-120h140v160h-112V92h-4L330 200h-82L128 92h-4v108H0V40z" fill="currentColor"/>
-          <path d="M700 40h112v160H700V40zm315 160c-44 0-82-9-115-28-31-19-56-46-73-80-17-34-26-74-26-120 0-46 9-86 26-120 17-34 42-61 73-80 33-19 71-28 115-28s82 9 114 28c32 19 57 46 74 80 17 34 26 74 26 120 0 46-9 86-26 120-17 34-42 61-74 80-32 19-70 28-114 28zm0-95c21 0 40-5 55-15 15-10 26-25 34-45 8-20 12-46 12-76s-4-56-12-76c-8-20-19-35-34-45-15-10-34-15-55-15s-40 5-56 15c-14 10-25 25-33 45-8 20-11 46-11 76s3 56 11 76c8 20 19 35 33 45 16 10 35 15 56 15zM2100 40v160h-112V92h-4l-124 108h-82L1654 92h-4v108h-112V40h140l140 120h6l140-120h136z" fill="currentColor"/>
-          <circle cx="1680" cy="25" r="25" fill="#EA4343"/>
-          <circle cx="1980" cy="25" r="25" fill="#EA4343"/>
-        </svg>
+        <span class="logo-text">MUFI</span>
       </router-link>
       <div class="nav-links">
         <a href="#hero" :class="{ active: currentSection === 'section-hero' }">홈</a>
@@ -89,12 +84,10 @@ onUnmounted(() => {
 
   .logo {
     text-decoration: none;
-    display: flex;
-    align-items: center;
     
-    svg {
-      height: 28px;
-      width: auto;
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
       transition: all 0.3s ease;
     }
   }
@@ -130,7 +123,7 @@ onUnmounted(() => {
   // 기본 상태 (hero 섹션)
   &.section-hero {
     background: transparent;
-    .logo svg {
+    .logo-text {
       color: white;
     }
     .nav-links a {
@@ -149,9 +142,9 @@ onUnmounted(() => {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0.8rem 0;
 
-    .logo svg {
-      height: 24px;
+    .logo-text {
       color: #1f1f1f;
+      font-size: 22px;
     }
 
     .nav-links a {
@@ -165,7 +158,7 @@ onUnmounted(() => {
 
   // features 섹션
   &.section-features {
-    .logo svg {
+    .logo-text {
       color: #1f1f1f;
     }
     .nav-links a {
@@ -179,7 +172,7 @@ onUnmounted(() => {
 
   // cases 섹션
   &.section-cases {
-    .logo svg {
+    .logo-text {
       color: #1f1f1f;
     }
     .nav-links a {
@@ -193,7 +186,7 @@ onUnmounted(() => {
 
   // contact 섹션
   &.section-contact {
-    .logo svg {
+    .logo-text {
       color: white;
     }
     .nav-links a {
@@ -216,8 +209,8 @@ onUnmounted(() => {
       }
     }
 
-    .logo svg {
-      height: 20px;
+    .logo-text {
+      font-size: 20px;
     }
   }
 }
