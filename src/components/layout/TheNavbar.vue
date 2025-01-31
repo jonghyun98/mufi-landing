@@ -30,35 +30,53 @@ const sections = [
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
-  // 현재 섹션 확인
-  const scrollPosition = window.scrollY
+  // 현재 스크롤 위치 (네비게이션 바 높이를 고려)
+  const scrollPosition = window.scrollY + 100
 
-  // 모든 섹션을 순회하며 가장 가까운 섹션 찾기
-  let closestSection = sections[0]
-  let minDistance = Infinity
-
-  sections.forEach(section => {
+  // 현재 보이는 섹션 찾기
+  let currentSectionFound = false
+  
+  for (const section of sections) {
     const element = document.getElementById(section.id)
     if (element) {
       const rect = element.getBoundingClientRect()
-      const distance = Math.abs(rect.top)
-      if (distance < minDistance) {
-        minDistance = distance
-        closestSection = section
+      const offsetTop = element.offsetTop
+      const offsetBottom = offsetTop + element.offsetHeight
+
+      // 현재 스크롤 위치가 섹션의 시작과 끝 사이에 있는지 확인
+      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+        currentSection.value = section.class
+        currentSectionFound = true
+        break
       }
     }
-  })
+  }
 
-  currentSection.value = closestSection.class
+  // 마지막 섹션 처리
+  if (!currentSectionFound && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+    currentSection.value = sections[sections.length - 1].class
+  }
+}
+
+// 스크롤 이벤트 디바운스 처리
+let scrollTimeout: number | null = null
+const debouncedHandleScroll = () => {
+  if (scrollTimeout) {
+    window.clearTimeout(scrollTimeout)
+  }
+  scrollTimeout = window.setTimeout(handleScroll, 100)
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', debouncedHandleScroll)
   handleScroll()
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', debouncedHandleScroll)
+  if (scrollTimeout) {
+    window.clearTimeout(scrollTimeout)
+  }
 })
 </script>
 
@@ -71,25 +89,14 @@ onUnmounted(() => {
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background: #1f1f1f;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(31, 31, 31, 0.9);
 
   &[data-scrolled="true"] {
-    background: #1f1f1f;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 0.8rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
     .logo-text {
-      color: white !important;
       font-size: 22px;
-    }
-
-    .nav-links a {
-      color: white !important;
-      text-shadow: none !important;
-      &::after {
-        background-color: var(--primary-color) !important;
-      }
     }
   }
 
@@ -109,7 +116,6 @@ onUnmounted(() => {
       font-size: 24px;
       font-weight: 800;
       transition: all 0.3s ease;
-      color: white;
     }
   }
 
@@ -121,7 +127,6 @@ onUnmounted(() => {
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
-      color: white;
       transition: all 0.3s ease;
       position: relative;
 
@@ -132,7 +137,6 @@ onUnmounted(() => {
         left: 0;
         width: 0;
         height: 2px;
-        background-color: var(--primary-color);
         transition: width 0.3s ease;
       }
 
@@ -140,26 +144,42 @@ onUnmounted(() => {
       &.active::after {
         width: 100%;
       }
+    }
+  }
 
+  // 어두운 배경 섹션 (밝은 텍스트)
+  &.section-hero,
+  &.section-cases {
+    background: rgba(31, 31, 31, 0.9);
+    .logo-text {
+      color: white;
+    }
+    .nav-links a {
+      color: white;
+      &::after {
+        background-color: var(--primary-color);
+      }
       &:hover {
         color: var(--primary-color);
       }
     }
   }
 
-  &.section-hero,
+  // 밝은 배경 섹션 (어두운 텍스트)
   &.section-features,
-  &.section-cases,
   &.section-contact {
-    background: #1f1f1f;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     .logo-text {
-      color: white;
+      color: #1f1f1f;
     }
     .nav-links a {
-      color: white;
-      text-shadow: none;
+      color: #1f1f1f;
       &::after {
         background-color: var(--primary-color);
+      }
+      &:hover {
+        color: var(--primary-color);
       }
     }
   }
