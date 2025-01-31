@@ -9,31 +9,27 @@
              :key="index" 
              class="case-card fade-in-up"
              :class="`delay-${index + 2}`">
-          <div class="case-header">
-            <h3>{{ item.university }}</h3>
-            <p class="event-name">{{ item.event }}</p>
+          <div class="case-image">
+            <img :src="getImageUrl(item.imageFolder)" :alt="`${item.university} 행사 사진`" />
           </div>
-          <div class="case-stats">
-            <div class="stat-item">
-              <div class="stat-value">
-                <count-up :end-val="item.users" :duration="2.5" :autoplay="true" separator="," />
-                <span class="stat-unit">명+</span>
+          <div class="case-content">
+            <h3>{{ item.university }}</h3>
+            <p class="event-description">{{ item.description }}</p>
+            <div class="case-stats">
+              <div class="stat-item">
+                <div class="stat-value">
+                  <count-up :end-val="item.users" :duration="2.5" :autoplay="true" separator="," />+
+                </div>
+                <div class="stat-label">이용자</div>
               </div>
-              <div class="stat-label">이용자 수</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">
-                <count-up :end-val="item.days" :duration="2.5" :autoplay="true" />
-                <span class="stat-unit">일</span>
+              <div class="stat-item">
+                <div class="stat-value">{{ item.days }}일</div>
+                <div class="stat-label">기간</div>
               </div>
-              <div class="stat-label">운영 기간</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">
-                <count-up :end-val="item.satisfaction" :duration="2.5" :autoplay="true" />
-                <span class="stat-unit">%</span>
+              <div class="stat-item">
+                <div class="stat-value">{{ item.satisfaction }}%</div>
+                <div class="stat-label">만족도</div>
               </div>
-              <div class="stat-label">만족도</div>
             </div>
           </div>
         </div>
@@ -48,62 +44,38 @@ import CountUp from 'vue-countup-v3'
 
 const cases = ref([
   {
-    university: '서울과학기술대학교',
-    event: '2023 대동제',
-    users: 1800,
-    days: 3,
-    satisfaction: 95
-  },
-  {
     university: '충북대학교',
-    event: '2023 대동제',
+    description: '2023 대동제 축제 기간 동안 3일간 1,500명 이상 이용',
     users: 1500,
     days: 3,
-    satisfaction: 98
+    satisfaction: 98,
+    imageFolder: 'chungbuk'
   },
   {
-    university: '서원대학교',
-    event: '2023 신입생 오리엔테이션',
-    users: 1200,
-    days: 2,
-    satisfaction: 97
-  },
-  {
-    university: '연세대학교 미래캠퍼스',
-    event: '2023 채용 박람회',
+    university: '한국외국어대학교',
+    description: '2023 축제 현장에서 2,000명 이상의 학생들과 함께',
     users: 2000,
     days: 4,
-    satisfaction: 96
+    satisfaction: 96,
+    imageFolder: 'hufs'
   },
   {
-    university: '동국대학교',
-    event: '2023~2025 동아리 박람회',
-    users: 10000,
+    university: '서울과학기술대학교',
+    description: '2023 대동제에서 총장님과 함께한 특별한 순간',
+    users: 1800,
     days: 3,
-    satisfaction: 94
-  },
-  {
-    university: '건국대학교',
-    event: '2023 축제 이벤트',
-    users: 2200,
-    days: 5,
-    satisfaction: 99
-  },
-  {
-    university: '건국대학교 글로컬캠퍼스',
-    event: '2023 가을 축제',
-    users: 1700,
-    days: 3,
-    satisfaction: 96
-  },
-  {
-    university: '세종대학교',
-    event: '2023 신입생 환영회',
-    users: 5000,
-    days: 2,
-    satisfaction: 95
+    satisfaction: 95,
+    imageFolder: 'seoultech'
   }
 ])
+
+const getImageUrl = (folder: string) => {
+  try {
+    return new URL(`../../assets/images/cases/${folder}/main.png`, import.meta.url).href
+  } catch {
+    return new URL(`../../assets/images/cases/placeholder.png`, import.meta.url).href
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -135,61 +107,67 @@ const cases = ref([
 
 .cases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .case-card {
   background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
   }
 
-  .case-header {
-    margin-bottom: 1.5rem;
-    
+  .case-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .case-content {
+    padding: 2rem;
+
     h3 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--secondary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    .event-name {
+    .event-description {
       font-size: 1rem;
-      color: var(--primary-color);
-      font-weight: 500;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      line-height: 1.5;
     }
   }
 
   .case-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 1rem;
   }
 
   .stat-item {
     text-align: center;
+    flex: 1;
 
     .stat-value {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--secondary-color);
       margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-
-      .stat-unit {
-        font-size: 1rem;
-        color: var(--gray-600);
-      }
     }
 
     .stat-label {
@@ -213,17 +191,26 @@ const cases = ref([
   }
 
   .case-card {
-    padding: 1.5rem;
+    .case-content {
+      padding: 1.5rem;
 
-    .case-header {
       h3 {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
+      }
+
+      .event-description {
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
       }
     }
 
     .stat-item {
       .stat-value {
         font-size: 1.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
       }
     }
   }
