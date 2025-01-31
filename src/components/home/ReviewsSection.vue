@@ -7,7 +7,7 @@
       <div class="reviews-grid">
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.2s">
           <div class="review-profile">
-            <img src="https://via.placeholder.com/100x100" alt="프로필" />
+            <img src="@/assets/icons/profile-1.svg" alt="서울대학교 총학생회 프로필" />
             <div class="profile-info">
               <h3>서울대학교 총학생회</h3>
               <p>2023 가을축제</p>
@@ -27,7 +27,7 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.3s">
           <div class="review-profile">
-            <img src="https://via.placeholder.com/100x100" alt="프로필" />
+            <img src="@/assets/icons/profile-2.svg" alt="삼성전자 인사팀 프로필" />
             <div class="profile-info">
               <h3>삼성전자 인사팀</h3>
               <p>2024 신년회</p>
@@ -47,7 +47,7 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.4s">
           <div class="review-profile">
-            <img src="https://via.placeholder.com/100x100" alt="프로필" />
+            <img src="@/assets/icons/profile-3.svg" alt="시그니엘 웨딩홀 프로필" />
             <div class="profile-info">
               <h3>시그니엘 웨딩홀</h3>
               <p>웨딩 플래너</p>
@@ -67,7 +67,7 @@
 
         <div class="review-card animate-fadeInUp" style="animation-delay: 0.5s">
           <div class="review-profile">
-            <img src="https://via.placeholder.com/100x100" alt="프로필" />
+            <img src="@/assets/icons/profile-1.svg" alt="서울재즈페스티벌 프로필" />
             <div class="profile-info">
               <h3>서울재즈페스티벌</h3>
               <p>행사 기획자</p>
