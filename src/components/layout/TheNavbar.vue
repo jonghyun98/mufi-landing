@@ -6,7 +6,7 @@
   ]">
     <div class="container">
       <router-link to="/" class="logo">
-        <img src="@/assets/images/logo.png" alt="MUFI Logo" />
+        <span class="logo-text">MUFI</span>
       </router-link>
       <div class="nav-links">
         <a href="#hero" :class="{ active: currentSection === 'section-hero' }">홈</a>
@@ -83,8 +83,12 @@ onUnmounted(() => {
   }
 
   .logo {
-    img {
-      height: 40px;
+    text-decoration: none;
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary-color);
       transition: all 0.3s ease;
     }
   }
@@ -134,8 +138,8 @@ onUnmounted(() => {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0.8rem 0;
 
-    .logo img {
-      height: 35px;
+    .logo .logo-text {
+      font-size: 20px;
     }
   }
 
