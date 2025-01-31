@@ -36,16 +36,16 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
   // 현재 섹션 확인
-  const currentScrollPos = window.scrollY + window.innerHeight / 2
-  
+  const scrollPosition = window.scrollY + 100 // 네비게이션 바 높이를 고려한 오프셋
+
   for (const section of sections) {
     const element = document.getElementById(section.id)
     if (element) {
       const { top, bottom } = element.getBoundingClientRect()
-      const absoluteTop = window.scrollY + top
-      const absoluteBottom = window.scrollY + bottom
-      
-      if (currentScrollPos >= absoluteTop && currentScrollPos <= absoluteBottom) {
+      const elementTop = top + window.scrollY
+      const elementBottom = bottom + window.scrollY
+
+      if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
         currentSection.value = section.class
         break
       }
@@ -89,6 +89,7 @@ onUnmounted(() => {
       font-size: 24px;
       font-weight: 800;
       transition: all 0.3s ease;
+      color: var(--primary-color);
     }
   }
 
@@ -102,6 +103,7 @@ onUnmounted(() => {
       font-size: 1.1rem;
       transition: all 0.3s ease;
       position: relative;
+      color: #1f1f1f;
 
       &::after {
         content: '';
@@ -110,6 +112,7 @@ onUnmounted(() => {
         left: 0;
         width: 0;
         height: 2px;
+        background-color: var(--primary-color);
         transition: width 0.3s ease;
       }
 
